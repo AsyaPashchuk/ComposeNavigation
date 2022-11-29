@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                                     name = "Settings",
                                     route = Screen.SettingsScreen.route,
                                     icon = Icons.Default.Settings,
-                                    badgeCount = 3
+                                    badgeCount = 20
                                 )
                             ),
                             navController = navController,
