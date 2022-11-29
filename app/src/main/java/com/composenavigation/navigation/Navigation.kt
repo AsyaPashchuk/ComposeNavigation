@@ -8,11 +8,15 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.composenavigation.composable.DetailScreen
 import com.composenavigation.composable.MainScreen
+import com.composenavigation.composable.SplashScreen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.MainScreen.route) {
+        composable(route = Screen.SplashScreen.route) {
+            SplashScreen(navController = navController)
+        }
         composable(route = Screen.MainScreen.route) {
             MainScreen(navController = navController)
         }
