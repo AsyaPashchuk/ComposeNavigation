@@ -1,19 +1,18 @@
 package com.composenavigation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.composenavigation.composable.DetailScreen
-import com.composenavigation.composable.MainScreen
-import com.composenavigation.composable.SplashScreen
+import com.composenavigation.composable.*
 
 @Composable
-fun Navigation() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.MainScreen.route) {
+fun Navigation(navController: NavHostController) {
+
+
+    NavHost(navController = navController, startDestination = Screen.SplashScreen.route) {
         composable(route = Screen.SplashScreen.route) {
             SplashScreen(navController = navController)
         }
@@ -35,6 +34,16 @@ fun Navigation() {
             )
         ) { entry ->
             DetailScreen(name = entry.arguments?.getString("name"))
+        }
+
+        composable(Screen.HomeScreen.route) {
+            HomeScreen()
+        }
+        composable(Screen.ChatScreen.route) {
+            ChatScreen()
+        }
+        composable(Screen.SettingsScreen.route) {
+            SettingsScreen()
         }
     }
 }
